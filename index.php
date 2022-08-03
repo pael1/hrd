@@ -49,7 +49,7 @@
             <div class="card">
               <div class="card-body">
                 <p class="card-text">4.Create the given pattern.</p>
-                <a href="/tasks/part1/task4.php" class="btn btn-primary">View</a>
+                <a href="./tasks/part1/task4.php" class="btn btn-primary">View</a>
               </div>
             </div>
           </div>
