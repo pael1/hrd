@@ -55,18 +55,20 @@
 // }
 
 // $MyStacks = new CreateStack();
-if(!isset($_SESSION['cart'])){
-    $_SESSION['cart'] = [];
+if (!isset($_SESSION['queue'])) {
+    $_SESSION['queue'] = [];
 }
 session_start();
-if (isset($_POST['submit'])) { 
-    $_SESSION['cart'][] = $_POST['stack_name'];
+if (isset($_POST['push'])) {
+    $_SESSION['queue'][] = $_POST['stack_name'];
 }
-if (isset($_POST['pop'])) { 
-   removeLast();
+if (isset($_POST['pop'])) {
+    removeFirst();
 }
-function removeLast(){
-    unset($_SESSION['cart'][0]);
+function removeFirst()
+{
+    $firstKey = array_key_first($_SESSION['queue']);
+    unset($_SESSION['queue'][$firstKey]);
 }
 
 ?>
@@ -83,32 +85,48 @@ function removeLast(){
 </head>
 
 <body>
+    <div class="container">
+        <pre>
+        4.Create a queue of integers using arrays (first in first out )
 
-    <form action="task4.php" method="post">
-        Name: <input type="text" name="stack_name"><br>
-        <input type="submit" name="submit">
-        <input type="submit" name="pop" value="Pop"/>
-    </form>
+        e. create input fields and push button to insert new value
+        f. Create pop button to remove the old value
+        g. Always display the existing queue content
+        h. Do not use pre defined php array function like array_pop
+        </pre>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
+        <form action="task4.php" method="post">
+            Name: <input type="text" name="stack_name"><br>
+            <!-- <input type="submit" name="submit" value="Push"> -->
+            <button type="submit" name="push">Push</button>
+            <button type="submit" name="pop">Pop</button>
+            <!-- <input type="submit" name="pop" value="Pop" /> -->
+        </form>
 
-            foreach ($_SESSION['cart'] as $key => $value) {
-                echo "<tr>";
-                echo "<th scope='row'>" . $value . "</th>";
-                echo "</tr>";
-            }
-            ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+
+                if (isset($_SESSION['queue'])) {
+                    foreach ($_SESSION['queue'] as $key => $value) {
+                        echo "<tr>";
+                        echo "<th scope='row'>" . $value . "</th>";
+                        echo "</tr>";
+                    }
+                }
+                ?>
 
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 
