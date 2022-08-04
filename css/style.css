@@ -1,4 +1,28 @@
-.row-answer{
+.question {
+    background: rgb(44, 43, 43);
+    color: white;
+    padding: 15px;
+}
+
+.row-answer {
     font-weight: bold;
     background: rgb(128, 156, 128) !important;
 }
+
+.even {
+    background: rgb(192, 212, 161) !important;
+}
+
+.center {
+
+    margin: 0 auto;
+    width: 25%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.session {
+    border: 3px solid green;
+    padding: 10px;
+}
+
