@@ -27,14 +27,18 @@
       <div>
         <?php
         $num = 5;
+
+        //create upper triangle
         for ($i = 1; $i <= $num; $i++) {
+          //multiply the parent element $i by child element $j
           for ($j = 1; $j <= $i; $j++) {
             echo $i * $j . "&nbsp;&nbsp;&nbsp;";
           }
           echo "<br>";
         }
-        // Second Part
+        //create lower triangle
         for ($i = 4; $i >= 1; $i--) {
+          //multiply the parent element $i by child element $j
           for ($j = 1; $j <= $i; $j++) {
             echo $i * $j . "&nbsp;&nbsp;&nbsp;";
           }

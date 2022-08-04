@@ -5,7 +5,9 @@ for ($i = 1; $i < 7; $i++) {
   $arr = [$i];
   $res = $i;
   for ($j = 4; $j > 0; $j--) {
+  //multiply the result by index plus 1
     $res = $res * ($i + 1);
+    //store to array $arr
     $arr[] = $res;
   }
   $num[] = $arr;
@@ -39,10 +41,10 @@ for ($i = 1; $i < 7; $i++) {
     <div class="center">
       <table>
         <?php
-        foreach ($num as $arr) {
+        foreach ($num as $value) {
           echo "<tr>";
-          for ($i = count($arr) - 1; $i >= 0; $i--) {
-            echo "<td>" . $arr[$i] . "</td>";
+          for ($i = count($value) - 1; $i >= 0; $i--) {
+            echo "<td>" . $value[$i] . "</td>";
           }
           echo "</tr>";
         }
