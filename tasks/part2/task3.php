@@ -7,9 +7,9 @@ if (isset($_POST['push'])) {
     $_SESSION['stacks'][] = $_POST['stack_name'];
 }
 if (isset($_POST['pop'])) {
-    removeLast();
+    remove_last_in();
 }
-function removeLast()
+function remove_last_in()
 {
     $length = count($_SESSION['stacks']);
     unset($_SESSION['stacks'][$length - 1]);

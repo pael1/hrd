@@ -7,9 +7,9 @@ if (isset($_POST['push'])) {
     $_SESSION['queue'][] = $_POST['stack_name'];
 }
 if (isset($_POST['pop'])) {
-    removeFirst();
+    remove_first_in();
 }
-function removeFirst()
+function remove_first_in()
 {
     $firstKey = array_key_first($_SESSION['queue']);
     unset($_SESSION['queue'][$firstKey]);
