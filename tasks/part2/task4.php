@@ -1,60 +1,4 @@
 <?php
-// class CreateStack
-// {
-//     public $top;
-//     public $stack = array();
-
-//     function __construct()
-//     {
-//         $this->top = -1;
-//     }
-
-//     // create a function to check whether 
-//     // the stack is empty or not  
-//     public function isEmpty()
-//     {
-//         if ($this->top == -1) {
-//             echo "Stack is empty. <br>";
-//         } else {
-//             echo "Stack is not empty. <br>";
-//         }
-//     }
-
-//     //create a function to return size of the stack 
-//     public function size()
-//     {
-//         echo "The size of stak is " .  $this->top + 1 . "<br>";
-//     }
-
-//     //create a function to add new element 
-//     public function push($x)
-//     {
-//         $this->stack[++$this->top] = $x;
-//         echo $x . " is added into the stack. <br>";
-//     }
-
-//     //create a function to delete top element   
-//     public function pop()
-//     {
-//         if ($this->top < 0) {
-//             echo "Stack is empty. <br>";
-//         } else {
-//             $x = $this->stack[$this->top--];
-//             echo $x . " is deleted from the stack. <br>";
-//         }
-//     }
-
-//     public function topElement()
-//     {
-//         if ($this->top < 0) {
-//             echo "Stack is empty. <br>";
-//         } else {
-//             echo "The top element of stack is " . $this->stack[$this->top];
-//         }
-//     }
-// }
-
-// $MyStacks = new CreateStack();
 if (!isset($_SESSION['queue'])) {
     $_SESSION['queue'] = [];
 }
@@ -82,25 +26,34 @@ function removeFirst()
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Part 2; Number 3</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <pre>
+        <div class="return mb-3">
+            <a href="../../index.php" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+                </svg>
+            </a>
+        </div>
+        <pre class="question">
         4.Create a queue of integers using arrays (first in first out )
 
-        e. create input fields and push button to insert new value
-        f. Create pop button to remove the old value
-        g. Always display the existing queue content
-        h. Do not use pre defined php array function like array_pop
+            e. create input fields and push button to insert new value
+            f. Create pop button to remove the old value
+            g. Always display the existing queue content
+            h. Do not use pre defined php array function like array_pop
         </pre>
 
         <form action="task4.php" method="post">
-            Name: <input type="text" name="stack_name"><br>
-            <!-- <input type="submit" name="submit" value="Push"> -->
-            <button type="submit" name="push">Push</button>
-            <button type="submit" name="pop">Pop</button>
-            <!-- <input type="submit" name="pop" value="Pop" /> -->
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="exampleInputName" name="stack_name">
+            </div>
+            <button type="submit" class="btn btn-success" name="push">Push</button>
+            <button type="submit" class="btn btn-danger" name="pop">Pop</button>
         </form>
 
         <table class="table">
@@ -120,8 +73,6 @@ function removeFirst()
                     }
                 }
                 ?>
-
-
             </tbody>
         </table>
     </div>
