@@ -20,6 +20,7 @@ for ($i = 0; $i < count($arrays_data); $i++) {
     $sum_row_result[] = array_sum($arrays_data[$i]);
 }
 
+//compute every columns
 for ($i = 0; $i < count($arrays_data); $i++) {
     $sum_col_result[] = array_sum(array_column($arrays_data, $i));
 }
@@ -40,7 +41,7 @@ for ($i = 0; $i < count($arrays_data); $i++) {
 
 <body>
     <div class="container">
-    <div class="return mb-3">
+        <div class="return mb-3">
             <a href="../../index.php" class="btn btn-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
@@ -61,7 +62,7 @@ for ($i = 0; $i < count($arrays_data); $i++) {
                 <?php
                 for ($i = 0; $i < count($arrays_data); $i++) {
                     echo "<tr>";
-                    for ($k=0; $k < count($arrays_data); $k++) { 
+                    for ($k = 0; $k < count($arrays_data); $k++) {
                         echo "<td>" . $arrays_data[$i][$k] . "</td>";
                     }
                     echo "<td class='row-answer'>" . $sum_row_result[$i] . "</td>";
