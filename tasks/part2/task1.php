@@ -1,33 +1,3 @@
-<?php
-
-function generate_char_arrays()
-{
-    $arrays = [
-        ['chr' => 'A', 'num' => '0'],
-        ['chr' => 'B', 'num' => '1'],
-        ['chr' => 'C', 'num' => '2'],
-        ['chr' => 'D', 'num' => '3'],
-        ['chr' => 'E', 'num' => '4'],
-        ['chr' => 'F', 'num' => '5'],
-        ['chr' => 'G', 'num' => '6'],
-        ['chr' => 'H', 'num' => '7'],
-        ['chr' => 'I', 'num' => '8'],
-        ['chr' => 'J', 'num' => '9'],
-        ['chr' => 'K', 'num' => '10']
-    ];
-    shuffle($arrays);
-    //array, index, lenght
-    return array_splice($arrays, 0, 5);
-}
-
-$arrays_data = array(
-    generate_char_arrays(),
-    generate_char_arrays(),
-    generate_char_arrays(),
-    generate_char_arrays()
-);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,19 +29,39 @@ $arrays_data = array(
             <thead>
             </thead>
             <tbody>
-                <?php
-                for ($i = 0; $i < count($arrays_data); $i++) {
-                    echo "<tr>";
-                    for ($k = 0; $k < count($arrays_data); $k++) {
-                        if ($arrays_data[$i][0]['num'] % 2 == 0) {
-                            echo "<td class='even'>" . $arrays_data[$i][$k]['chr'] . "</td>";
-                        } else {
-                            echo "<td>" . $arrays_data[$i][$k]['chr'] . "</td>";
+                <tr>
+                    <?php
+                    $const = [
+                        'A', 'B', 'C', 'D', 'E',
+                        'F', 'G', 'H', 'I', 'J',
+                        'K'
+                    ];
+
+                    $even = [
+                        'A' => true, 'C' => true,
+                        'E' => true, 'G' => true,
+                        'I' => true, 'K' => true,
+
+                        //odd
+                        'B' => false, 'D' => false,
+                        'F' => false, 'H' => false,
+                        'J' => false
+
+                    ];
+
+                    $rand = [];
+                    for ($i = 20; $i >= 1; $i--)
+                        array_push($rand, array_rand($const, 1));
+
+                    //display
+                    foreach ($rand as $idx => $val) {
+                        if ($idx % 5 == 0 && $idx != 0) {
+                            echo '</tr><tr>';
                         }
+                        echo "<td class='" . (($even[$const[$val]]) ? 'even' : '') . "'>$const[$val]</td>";
                     }
-                    echo "</tr>";
-                }
-                ?>
+                    ?>
+                </tr>
             </tbody>
         </table>
     </div>
