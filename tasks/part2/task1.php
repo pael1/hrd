@@ -1,22 +1,31 @@
 <?php
 
-function generateNumber()
+function generate_char_arrays()
 {
-    $random_number_array = range('A', 'K');
-    shuffle($random_number_array);
+    $arrays = [
+        ['chr' => 'A', 'num' => '0'],
+        ['chr' => 'B', 'num' => '1'],
+        ['chr' => 'C', 'num' => '2'],
+        ['chr' => 'D', 'num' => '3'],
+        ['chr' => 'E', 'num' => '4'],
+        ['chr' => 'F', 'num' => '5'],
+        ['chr' => 'G', 'num' => '6'],
+        ['chr' => 'H', 'num' => '7'],
+        ['chr' => 'I', 'num' => '8'],
+        ['chr' => 'J', 'num' => '9'],
+        ['chr' => 'K', 'num' => '10']
+    ];
+    shuffle($arrays);
     //array, index, lenght
-    return array_splice($random_number_array, 0, 5, true);
+    return array_splice($arrays, 0, 5);
 }
 
-$marksarray = array(
-    generateNumber(),
-    generateNumber(),
-    generateNumber(),
-    generateNumber()
+$arrays_data = array(
+    generate_char_arrays(),
+    generate_char_arrays(),
+    generate_char_arrays(),
+    generate_char_arrays()
 );
-
-print_r($marksarray);
-
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +42,15 @@ print_r($marksarray);
 
 <body>
     <div class="container">
-        <pre>
-        1. Generate a random character from a -k
+        <div class="return mb-3">
+            <a href="../../index.php" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+                </svg>
+            </a>
+        </div>
+        <pre class="question">
+        1. Generate a random character from a - k
             a. Create a 4 x 5 table
             b. Display all the random character inside the table
             c. Highlight all the character that belongs to the even column
@@ -44,13 +60,15 @@ print_r($marksarray);
             </thead>
             <tbody>
                 <?php
-                for ($i = 0; $i < count($marksarray); $i++) {
+                for ($i = 0; $i < count($arrays_data); $i++) {
                     echo "<tr>";
-                    echo "<td>" . $marksarray[$i][0] . "</td>";
-                    echo "<td>" . $marksarray[$i][1] . "</td>";
-                    echo "<td>" . $marksarray[$i][2] . "</td>";
-                    echo "<td>" . $marksarray[$i][3] . "</td>";
-                    echo "<td>" . $marksarray[$i][4] . "</td>";
+                    for ($k = 0; $k < count($arrays_data); $k++) {
+                        if ($arrays_data[$i][0]['num'] % 2 == 0) {
+                            echo "<td class='even'>" . $arrays_data[$i][$k]['chr'] . "</td>";
+                        } else {
+                            echo "<td>" . $arrays_data[$i][$k]['chr'] . "</td>";
+                        }
+                    }
                     echo "</tr>";
                 }
                 ?>
