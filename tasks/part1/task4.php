@@ -39,7 +39,7 @@ for ($i = 1; $i < 7; $i++) {
          4.Create the given pattern
         </pre>
     <div class="center">
-      <table>
+      <table class="table cus_table">
         <?php
         foreach ($num as $value) {
           echo "<tr>";
